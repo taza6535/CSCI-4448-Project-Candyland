@@ -7,7 +7,7 @@ public class FollowPath : MonoBehaviour
     public Transform[] waypoints;
     private float moveSpeed = 1f;
     public int waypointIndex = 0;
-    public bool moveAllowed = False;
+    public bool moveAllowed = false;
 
     private void Start(){
         transform.position = waypoints[waypointIndex].transform.position;

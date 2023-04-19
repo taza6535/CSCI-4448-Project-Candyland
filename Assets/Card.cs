@@ -7,11 +7,11 @@ public class Card : MonoBehaviour
     private Sprite[] cardTypes;
     private SpriteRenderer rend;
     private int playerTurn = 1;
-    private bool coroutineAllowed = True;
+    private bool coroutineAllowed = true;
 
     private void Start(){
-        rend = getComponent<SpriteRenderer>();
-        cardTypes = Images.LoadAll<Sprite>("CardOptions/");
+        rend = GetComponent<SpriteRenderer>();
+        cardTypes = Resources.LoadAll<Sprite>("CardOptions/");
         rend.sprite = cardTypes[0];
     }
 
@@ -22,7 +22,7 @@ public class Card : MonoBehaviour
     }
 
     private IEnumerator DrawCard(){
-        coroutineAllowed = False;
+        coroutineAllowed = false;
         // draw random card
         int randCard = 0;
         randCard = Random.Range(0,19);
@@ -46,7 +46,8 @@ public class Card : MonoBehaviour
         } else {
             playerTurn += 1;
         }
-        coroutineAllowed = True;
+        coroutineAllowed = true;
+        yield break;
     }
 
 }
