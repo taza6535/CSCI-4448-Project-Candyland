@@ -8,13 +8,15 @@ public class FollowPath : MonoBehaviour
     private float moveSpeed = 1f;
     public int waypointIndex = 0;
     public bool moveAllowed = false;
+    // if player lands on licorice
+    public bool skipTurn = false;
 
     private void Start(){
         transform.position = waypoints[waypointIndex].transform.position;
     }
 
     private void Update(){
-        if (moveAllowed){
+        if (moveAllowed & !skipTurn){
             Move();
         }
     }
@@ -29,5 +31,10 @@ public class FollowPath : MonoBehaviour
                 waypointIndex += 1;
             }
         }
+        // else {
+        //     transform.position = Vector2.MoveTowards(transform.position,
+        //     waypoints[waypoint.Length-1].transform.position,
+        //     moveSpeed * Time.deltaTime);
+        // }
     }
 }

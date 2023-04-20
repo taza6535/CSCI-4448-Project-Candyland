@@ -18,6 +18,7 @@ public class Card : MonoBehaviour
     private void OnMouseDown(){
         if (!GameControl.gameOver && coroutineAllowed){
             StartCoroutine("DrawCard");
+            Console.WriteLine("Card has been clicked");
         }
     }
 
