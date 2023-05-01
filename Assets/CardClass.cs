@@ -7,58 +7,60 @@ public abstract class CardClass : MonoBehaviour
 {
     public abstract string Color { get; }
     public abstract int Spaces { get; }
+    public abstract void SetValue(string value);
+    public abstract void SetValue(int value);
 }
 
 public class RegularCard : CardClass
 {
     // variables
-    private string color;
-    private int spaces;
+    public string color;
+    public int numSquares;
 
     // constructor
     public RegularCard(string c, int s){
-        color = c;
-        spaces = s;
+        this.color = c;
+        this.numSquares = s;
     }
 
     // getters & setters
     public override string Color {
         get { return color; }
     }
-    public void SetValue(string value) {
+    public override void SetValue(string value) {
         color = value;
     }
     public override int Spaces {
-        get { return spaces; }
+        get { return this.numSquares; }
     }
-    public void SetValue(int value) {
-       spaces = value;
+    public override void SetValue(int value) {
+       this.numSquares = value;
     }
 }
 
 public class SpecialCard : CardClass
 {
    // variables
-    private string color;
-    private int spaces;
+    public string color;
+    public int numSquares;
 
     // constructor
     public SpecialCard(string c, int s){
-        color = c;
-        spaces = s;
+        this.color = c;
+        this.numSquares = s;
     }
 
     // getters & setters
     public override string Color {
-        get { return color; }
+        get { return this.color; }
     }
-    public void SetValue(string value) {
-        color = value;
+    public override void SetValue(string value) {
+        this.color = value;
     }
     public override int Spaces {
-        get { return spaces; }
+        get { return this.numSquares; }
     }
-    public void SetValue(int value) {
-       spaces = value;
+    public override void SetValue(int value) {
+       this.numSquares = value;
     }
 }

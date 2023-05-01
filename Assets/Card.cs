@@ -11,14 +11,14 @@ public class Card : MonoBehaviour
 
     private void Start(){
         rend = GetComponent<SpriteRenderer>();
-        cardTypes = Resources.LoadAll<Sprite>("CardOptions/");
+        cardTypes = Resources.LoadAll<Sprite>("Images/CardOptions/");
         rend.sprite = cardTypes[0];
     }
 
     private void OnMouseDown(){
         if (!GameControl.gameOver && coroutineAllowed){
             StartCoroutine("DrawCard");
-            Console.WriteLine("Card has been clicked");
+            System.Console.WriteLine("Card has been clicked");
         }
     }
 

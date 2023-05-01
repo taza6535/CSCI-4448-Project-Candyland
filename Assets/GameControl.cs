@@ -17,9 +17,8 @@ public class GameControl : MonoBehaviour
     public static bool gameOver = false;
     // create game board array with all board spaces 
     public string[] gameBoard = new string[] {"red","purple","yellow","blue","orange","green","red","purple","gingerbread","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","candycane","red","purple","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","red","purple","yellow","gumdrop","blue","orange","green","licorice","purple","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","red","purple","yellow","blue","orange","peanut","green","red","purple","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","red","purple","yellow","licorice","orange","green","red","purple","yellow","lollipop","blue","orange","green","red","purple","yellow","blue","orange","green","ice cream","red","purple","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","red","purple","licorice","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","red","rainbow"};
-    // initialize card object array
-    public List<CardClass> cards = new List<CardClass>();
-    private CardFactory Cfactory = new CardFactory();
+    public List<CardClass> cards;
+    public CardFactory Cfactory;
     // Start is called before the first frame update
     // assign players to their game pieces
     void Start()
@@ -39,6 +38,8 @@ public class GameControl : MonoBehaviour
         player3.GetComponent<FollowPath>().skipTurn = false;
         player4.GetComponent<FollowPath>().skipTurn = false;
 
+        cards = new List<CardClass>();
+        Cfactory = CardFactory.Instance; //Singleton pattern 
         CardClass c0 = Cfactory.createCard("regular","blue",2);
         cards.Add(c0);
         CardClass c1 = Cfactory.createCard("regular","blue",1);
