@@ -85,7 +85,6 @@ public class GameControl : MonoBehaviour
     {
         string goalColor = cards[cardPicked].Color;
         int spacesToMove = cards[cardPicked].Spaces;
-
         // while (spacesToMove > 0){
         //     int currIndex = player1.GetComponent<FollowPath>().waypointIndex;
         //     player1StartWaypoint += 1;

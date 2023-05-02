@@ -5,7 +5,7 @@ using UnityEngine;
 public class FollowPath : MonoBehaviour
 {
     public Transform[] waypoints;
-    private float moveSpeed = 1f;
+    private float moveSpeed = 9f;
     public int waypointIndex = 0;
     public bool moveAllowed = false;
     // if player lands on licorice

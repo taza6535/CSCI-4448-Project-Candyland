@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Card : MonoBehaviour
+public class Card : MonoBehaviour, IPointerClickHandler
 {
     private Sprite[] cardTypes;
     private SpriteRenderer rend;
@@ -12,10 +13,18 @@ public class Card : MonoBehaviour
     private void Start(){
         rend = GetComponent<SpriteRenderer>();
         cardTypes = Resources.LoadAll<Sprite>("Images/CardOptions/");
-        rend.sprite = cardTypes[0];
+        //rend.sprite = cardTypes[0];
     }
 
     private void OnMouseDown(){
+        if (!GameControl.gameOver && coroutineAllowed){
+            StartCoroutine("DrawCard");
+            System.Console.WriteLine("Card has been clicked");
+        }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
         if (!GameControl.gameOver && coroutineAllowed){
             StartCoroutine("DrawCard");
             System.Console.WriteLine("Card has been clicked");
@@ -28,6 +37,7 @@ public class Card : MonoBehaviour
         int randCard = 0;
         randCard = Random.Range(0,19);
         rend.sprite = cardTypes[randCard];
+        gameObject.GetComponent<UnityEngine.UI.Image>().sprite = rend.sprite;
         GameControl.cardPicked = randCard;
         // play turn
         if (playerTurn == 1){
