@@ -23,15 +23,17 @@ public class CardFactory : MonoBehaviour
     }
     public CardClass createCard(string type, string color, int numSquares){
         if (type == "regular"){
-            newCard = gameObject.AddComponent<RegularCard>();
-            newCard.SetValue(color);
-            newCard.SetValue(numSquares);
+            // newCard = gameObject.AddComponent<RegularCard>();
+            CardClass newCard = new RegularCard() {Color = color, Spaces = numSquares};
+            // newCard.SetValue(color);
+            // newCard.SetValue(numSquares);
             return newCard;
         }
         else if (type == "special"){
-            newCard = gameObject.AddComponent<SpecialCard>();
-            newCard.SetValue(color);
-            newCard.SetValue(numSquares);
+            // newCard = gameObject.AddComponent<SpecialCard>();
+            CardClass newCard = new SpecialCard() {Color = color, Spaces = numSquares};
+            // newCard.SetValue(color);
+            // newCard.SetValue(numSquares);
             return newCard;
         }
         else {
