@@ -35,7 +35,7 @@ public class Card : MonoBehaviour, IPointerClickHandler
         coroutineAllowed = false;
         // draw random card
         int randCard = 0;
-        randCard = Random.Range(0,19);
+        randCard = Random.Range(0,67);
         rend.sprite = cardTypes[randCard];
         gameObject.GetComponent<UnityEngine.UI.Image>().sprite = rend.sprite;
         GameControl.cardPicked = randCard;

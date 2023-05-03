@@ -10,7 +10,7 @@ public class FollowPath : MonoBehaviour
     public bool moveAllowed = false;
     // if player lands on licorice
     public bool skipTurn = false;
-
+    public string[] gameBoard = new string[] {"red","purple","yellow","blue","orange","green","red","purple","gingerbread","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","candycane","red","purple","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","red","purple","yellow","gumdrop","blue","orange","green","licorice","purple","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","red","purple","yellow","blue","orange","peanut","green","red","purple","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","red","purple","yellow","licorice","orange","green","red","purple","yellow","lollipop","blue","orange","green","red","purple","yellow","blue","orange","green","ice cream","red","purple","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","red","purple","licorice","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","red","rainbow"};
     private void Start(){
         transform.position = waypoints[waypointIndex].transform.position;
     }
@@ -26,7 +26,6 @@ public class FollowPath : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position,
             waypoints[waypointIndex].transform.position,
             moveSpeed * Time.deltaTime);
-            
             if (transform.position == waypoints[waypointIndex].transform.position){
                 waypointIndex += 1;
             }

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class GameControl : MonoBehaviour
 {
     private static GameObject player1, player2, player3, player4;
@@ -18,7 +17,7 @@ public class GameControl : MonoBehaviour
     // create game board array with all board spaces 
     public string[] gameBoard = new string[] {"red","purple","yellow","blue","orange","green","red","purple","gingerbread","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","candycane","red","purple","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","red","purple","yellow","gumdrop","blue","orange","green","licorice","purple","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","red","purple","yellow","blue","orange","peanut","green","red","purple","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","red","purple","yellow","licorice","orange","green","red","purple","yellow","lollipop","blue","orange","green","red","purple","yellow","blue","orange","green","ice cream","red","purple","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","red","purple","licorice","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","red","purple","yellow","blue","orange","green","red","rainbow"};
     public List<CardClass> cards;
-    public CardFactory Cfactory;
+    public CardFactory CFactory;
     // Start is called before the first frame update
     // assign players to their game pieces
     void Start()
@@ -38,46 +37,82 @@ public class GameControl : MonoBehaviour
         player3.GetComponent<FollowPath>().skipTurn = false;
         player4.GetComponent<FollowPath>().skipTurn = false;
 
+        //initializing cards
         cards = new List<CardClass>();
-        Cfactory = CardFactory.Instance; //Singleton pattern 
-        CardClass c0 = Cfactory.createCard("regular","blue",2);
-        cards.Add(c0);
-        CardClass c1 = Cfactory.createCard("regular","blue",1);
-        cards.Add(c1);
-        CardClass c2 = Cfactory.createCard("special","candycane",1);
-        cards.Add(c2);
-        CardClass c3 = Cfactory.createCard("regular","green",2);
-        cards.Add(c3);
-        CardClass c4 = Cfactory.createCard("special","gingerbread",1);
-        cards.Add(c4);
-        CardClass c5 = Cfactory.createCard("regular","green",1);
-        cards.Add(c5);
-        CardClass c6 = Cfactory.createCard("special","gumdrop",1);
-        cards.Add(c6);
-        CardClass c7 = Cfactory.createCard("special","ice cream",1);
-        cards.Add(c7);
-        CardClass c8 = Cfactory.createCard("special","licorice",1);
-        cards.Add(c8);
-        CardClass c9 = Cfactory.createCard("special","lollipop",1);
-        cards.Add(c9);
-        CardClass c10 = Cfactory.createCard("regular","orange",2);
-        cards.Add(c10);
-        CardClass c11 = Cfactory.createCard("regular","orange",1);
-        cards.Add(c11);
-        CardClass c12 = Cfactory.createCard("regular","purple",2);
-        cards.Add(c12);
-        CardClass c13 = Cfactory.createCard("special","peanut",1);
-        cards.Add(c13);
-        CardClass c14 = Cfactory.createCard("regular","purple",1);
-        cards.Add(c14);
-        CardClass c15 = Cfactory.createCard("regular","red",2);
-        cards.Add(c15);
-        CardClass c16 = Cfactory.createCard("regular","red",1);
-        cards.Add(c16);
-        CardClass c17 = Cfactory.createCard("regular","yellow",2);
-        cards.Add(c17);
-        CardClass c18 = Cfactory.createCard("regular","yellow",1);
-        cards.Add(c18);
+        CFactory = CardFactory.Instance; //Singleton pattern 
+        for(int i=0; i<4; i++){
+            CardClass bd = CFactory.createCard("regular", "blue", 2);
+            cards.Add(bd);
+        }
+        for(int i=0; i<6; i++){
+            CardClass bs = CFactory.createCard("regular", "blue", 1);
+            cards.Add(bs);
+        }
+        
+        CardClass candycane = CFactory.createCard("special","candycane",1);
+        cards.Add(candycane);
+
+        for(int i=0; i<4; i++){
+            CardClass gd = CFactory.createCard("regular", "green", 2);
+            cards.Add(gd);
+        }
+        CardClass gingerbread = CFactory.createCard("special","candycane",1);
+        cards.Add(gingerbread);
+        for(int i=0; i<6; i++){
+            CardClass gs = CFactory.createCard("regular", "green", 1);
+            cards.Add(gs);
+        }
+
+
+        CardClass gumdrop = CFactory.createCard("special","candycane",1);
+        CardClass icecream = CFactory.createCard("special","candycane",1);
+        CardClass licorice = CFactory.createCard("special","candycane",1);
+        CardClass lollipop = CFactory.createCard("special","candycane",1);
+        cards.Add(gumdrop);
+        cards.Add(icecream);
+        cards.Add(licorice);
+        cards.Add(lollipop);
+
+        for(int i=0; i<4; i++){
+            CardClass od = CFactory.createCard("regular", "orange", 2);
+            cards.Add(od);
+        }
+        for(int i=0; i<6; i++){
+            CardClass os = CFactory.createCard("regular", "orange", 1);
+            cards.Add(os);
+        }
+
+        for(int i=0; i<4; i++){
+            CardClass pd = CFactory.createCard("regular", "purple", 2);
+            cards.Add(pd);
+        }
+        CardClass peanut = CFactory.createCard("special","candycane",1);
+        cards.Add(peanut);
+        for(int i=0; i<6; i++){
+            CardClass ps = CFactory.createCard("regular", "purple", 1);
+            cards.Add(ps);
+        }
+
+        for(int i=0; i<4; i++){
+            CardClass rd = CFactory.createCard("regular", "red", 2);
+            cards.Add(rd);
+        }
+        for(int i=0; i<6; i++){
+            CardClass rs = CFactory.createCard("regular", "red", 1);
+            cards.Add(rs);
+        }
+
+        for(int i=0; i<4; i++){
+            CardClass yd = CFactory.createCard("regular", "yellow", 2);
+            cards.Add(yd);
+        }
+        for(int i=0; i<6; i++){
+            CardClass ys = CFactory.createCard("regular", "yellow", 1);
+            cards.Add(ys);
+        }
+
+
+
     }
 
     // Update is called once per frame
@@ -91,23 +126,24 @@ public class GameControl : MonoBehaviour
 
         //     player1.GetComponent<FollowPath>().moveAllowed = false;
         // }
+
         if (player1.GetComponent<FollowPath>().waypointIndex > 
-        player1StartWaypoint + cardPicked){
+        player1StartWaypoint + spacesToMove){
             player1.GetComponent<FollowPath>().moveAllowed = false;
-            player1StartWaypoint = player1.GetComponent<FollowPath>().waypointIndex - 1;
+            player1StartWaypoint = player1.GetComponent<FollowPath>().waypointIndex-1;
         }
         if (player2.GetComponent<FollowPath>().waypointIndex > 
-        player2StartWaypoint + cardPicked){
+        player2StartWaypoint + spacesToMove){
             player2.GetComponent<FollowPath>().moveAllowed = false;
             player2StartWaypoint = player2.GetComponent<FollowPath>().waypointIndex - 1;
         }
         if (player3.GetComponent<FollowPath>().waypointIndex > 
-        player3StartWaypoint + cardPicked){
+        player3StartWaypoint + spacesToMove){
             player3.GetComponent<FollowPath>().moveAllowed = false;
             player3StartWaypoint = player3.GetComponent<FollowPath>().waypointIndex - 1;
         }
         if (player4.GetComponent<FollowPath>().waypointIndex > 
-        player4StartWaypoint + cardPicked){
+        player4StartWaypoint + spacesToMove){
             player4.GetComponent<FollowPath>().moveAllowed = false;
             player4StartWaypoint = player4.GetComponent<FollowPath>().waypointIndex - 1;
         }
