@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public abstract class CardClass : MonoBehaviour
 {
-    public abstract string namespace Color { get; }
+    public abstract string Color { get; }
     public abstract int Spaces { get; }
     public abstract void SetValue(string value);
     public abstract void SetValue(int value);
 }
-
+//Decorator pattern
 public class RegularCard : CardClass
 {
     // variables
@@ -18,10 +18,10 @@ public class RegularCard : CardClass
     public int numSquares;
 
     // constructor
-    // public RegularCard(string c, int s){
-    //     this.color = c;
-    //     this.numSquares = s;
-    // }
+    public RegularCard(string c, int s){
+        this.color = c;
+        this.numSquares = s;
+    }
 
     // getters & setters
     public override string Color {
@@ -45,10 +45,10 @@ public class SpecialCard : CardClass
     public int numSquares;
 
     // constructor
-    // public SpecialCard(string c, int s){
-    //     this.color = c;
-    //     this.numSquares = s;
-    // }
+    public SpecialCard(string c, int s){
+        this.color = c;
+        this.numSquares = s;
+    }
 
     // getters & setters
     public override string Color {

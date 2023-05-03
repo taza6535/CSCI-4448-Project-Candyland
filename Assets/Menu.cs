@@ -7,7 +7,7 @@ public class Menu : MonoBehaviour
 {
     public void PlayGame ()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(3);
     }
     public void ShowLeaderboard ()
     {
@@ -15,6 +15,6 @@ public class Menu : MonoBehaviour
     }
     public void CreateNewPlayer ()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
 }

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//code based off of: https://www.youtube.com/watch?v=W8ielU8iURI&t=19s&ab_channel=AlexanderZotov
 public class FollowPath : MonoBehaviour
 {
     public Transform[] waypoints;

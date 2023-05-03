@@ -127,6 +127,44 @@ public class GameControl : MonoBehaviour
         //     player1.GetComponent<FollowPath>().moveAllowed = false;
         // }
 
+        // while(spacesToMove>0){
+        //     int currIndex = player1.GetComponent<FollowPath>().waypointIndex - 1;
+        //     if(currIndex == -1){
+        //         currIndex = 0;
+        //     }
+        //     //regular moves
+        //     //for(int i=currIndex; i<gameBoard.Length; i++){
+        //         if(string.Equals(gameBoard[currIndex],goalColor)){
+        //             spacesToMove--;
+        //             if (player1.GetComponent<FollowPath>().waypointIndex > 
+        //             player1StartWaypoint + 1){
+        //                 //player1.GetComponent<FollowPath>().moveAllowed = false;
+        //                 player1StartWaypoint = player1.GetComponent<FollowPath>().waypointIndex-1;
+        //             }
+        //             if (player2.GetComponent<FollowPath>().waypointIndex > 
+        //             player2StartWaypoint +1){
+        //                 //player2.GetComponent<FollowPath>().moveAllowed = false;
+        //                 player2StartWaypoint = player2.GetComponent<FollowPath>().waypointIndex - 1;
+        //             }
+        //             if (player3.GetComponent<FollowPath>().waypointIndex > 
+        //             player3StartWaypoint+1){
+        //                 //player3.GetComponent<FollowPath>().moveAllowed = false;
+        //                 player3StartWaypoint = player3.GetComponent<FollowPath>().waypointIndex - 1;
+        //             }
+        //             if (player4.GetComponent<FollowPath>().waypointIndex > 
+        //             player4StartWaypoint+1){
+        //                 //player4.GetComponent<FollowPath>().moveAllowed = false;
+        //                 player4StartWaypoint = player4.GetComponent<FollowPath>().waypointIndex - 1;
+        //             }
+        //             break;
+        //         }
+        //     //}
+        // }
+        // player1.GetComponent<FollowPath>().moveAllowed = false;
+        // player2.GetComponent<FollowPath>().moveAllowed = false;
+        // player3.GetComponent<FollowPath>().moveAllowed = false;
+        // player4.GetComponent<FollowPath>().moveAllowed = false;
+
         if (player1.GetComponent<FollowPath>().waypointIndex > 
         player1StartWaypoint + spacesToMove){
             player1.GetComponent<FollowPath>().moveAllowed = false;
